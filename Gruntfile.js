@@ -73,11 +73,11 @@ module.exports = function(grunt) {
         src: 'sass/ratchet.scss',
         dest: '<%= meta.distPath %>css/<%= pkg.name %>.css'
       },
-      android_theme: {
+      android: {
         src: 'sass/theme-android.scss',
         dest: '<%= meta.distPath %>css/<%= pkg.name %>-theme-android.css'
       },
-      ios_theme: {
+      ios: {
         src: 'sass/theme-ios.scss',
         dest: '<%= meta.distPath %>css/<%= pkg.name %>-theme-ios.css'
       },
@@ -96,14 +96,14 @@ module.exports = function(grunt) {
           '<%= sass.core.dest %>': '<%= sass.core.dest %>'
         }
       },
-      android_theme: {
+      android: {
         files: {
-          '<%= sass.android_theme.dest %>': '<%= sass.android_theme.dest %>'
+          '<%= sass.android.dest %>': '<%= sass.android.dest %>'
         }
       },
-      ios_theme: {
+      ios: {
         files: {
-          '<%= sass.ios_theme.dest %>': '<%= sass.ios_theme.dest %>'
+          '<%= sass.ios.dest %>': '<%= sass.ios.dest %>'
         }
       },
       docs: {
@@ -136,17 +136,17 @@ module.exports = function(grunt) {
       core: {
         src: '<%= sass.core.dest %>'
       },
-      android_theme: {
+      android: {
         options: {
           browsers: ['last 2 versions', 'android 2.3', 'android 4', 'opera 12']
         },
-        src: '<%= sass.android_theme.dest %>'
+        src: '<%= sass.android.dest %>'
       },
-      ios_theme: {
+      ios: {
         options: {
           browsers: ['last 2 versions']
         },
-        src: '<%= sass.ios_theme.dest %>'
+        src: '<%= sass.ios.dest %>'
       },
       docs: {
         src: '<%= sass.docs.dest %>'
