@@ -5,7 +5,6 @@
   "eqeqeq"  : true,
   "eqnull"  : true,
   "expr"    : true,
-  "forin"   : true,
   "freeze"  : true,
   "latedef" : true,
   "nonbsp"  : true,
