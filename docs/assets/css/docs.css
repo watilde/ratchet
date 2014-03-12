@@ -57,7 +57,10 @@ body {
 .docs-header,
 .docs-sub-header {
   position: relative;
-  background-image: linear-gradient(45deg, #0a1855 0%, #da0024 100%);
+  background-color: #0a1855;
+  background-image: -webkit-linear-gradient(45deg, #0a1855 0%, #da0024 100%);
+  background-image:      -o-linear-gradient(45deg, #0a1855 0%, #da0024 100%);
+  background-image:         linear-gradient(45deg, #0a1855 0%, #da0024 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0a1855', endColorstr='#da0024', GradientType=0 );
 }
 
@@ -69,10 +72,10 @@ body {
   position: relative !important;
   margin-top: 0 !important;
   -webkit-animation-name: fadeintext;
-     -moz-animation-name: fadeintext;
+       -o-animation-name: fadeintext;
           animation-name: fadeintext;
   -webkit-animation-duration: 2s;
-     -moz-animation-duration: 2s;
+       -o-animation-duration: 2s;
           animation-duration: 2s;
 }
 .docs-header .version {
@@ -106,6 +109,7 @@ body {
     margin-top: 0 !important;
     -webkit-transform: translateY(-50%) !important;
         -ms-transform: translateY(-50%) !important;
+         -o-transform: translateY(-50%) !important;
             transform: translateY(-50%) !important;
   }
 }
@@ -125,6 +129,7 @@ body {
   font-weight: 400;
   -webkit-transform: translateX(-50%);
       -ms-transform: translateX(-50%);
+       -o-transform: translateX(-50%);
           transform: translateX(-50%);
 }
 
@@ -165,7 +170,7 @@ body {
 .docs-nav-item {
   color: #fff;
   -webkit-transition: opacity .2s linear;
-     -moz-transition: opacity .2s linear;
+       -o-transition: opacity .2s linear;
           transition: opacity .2s linear;
 }
 .docs-title a:active, .docs-title a:focus,
@@ -182,6 +187,7 @@ body {
     font-weight: 300;
     -webkit-transform: translateX(0);
         -ms-transform: translateX(0);
+         -o-transform: translateX(0);
             transform: translateX(0);
   }
 
@@ -212,7 +218,7 @@ body {
     color: #777;
     cursor: pointer;
     -webkit-transition: opacity .2 linear;
-       -moz-transition: opacity .2 linear;
+         -o-transition: opacity .2 linear;
             transition: opacity .2 linear;
   }
   .docs-jump-menu:hover {
@@ -238,7 +244,8 @@ body {
     padding-top: 10px;
     padding-bottom: 10px;
     background-color: #fff;
-    background-clip: padding-box;
+    -webkit-background-clip: padding-box;
+            background-clip: padding-box;
     border: 1px solid rgba(0, 0, 0, .2);
     border-radius: 3px;
     -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .05);
@@ -288,10 +295,10 @@ body {
   padding: 50px 10px;
   text-align: center;
   -webkit-animation-name: fadeintext;
-     -moz-animation-name: fadeintext;
+       -o-animation-name: fadeintext;
           animation-name: fadeintext;
   -webkit-animation-duration: 2s;
-     -moz-animation-duration: 2s;
+       -o-animation-duration: 2s;
           animation-duration: 2s;
 }
 .docs-header-content .btn {
@@ -303,7 +310,7 @@ body {
   background-color: #fff;
   border: 0;
   -webkit-transition: all .2s linear;
-     -moz-transition: all .2s linear;
+       -o-transition: all .2s linear;
           transition: all .2s linear;
 }
 .docs-header-content .btn:hover {
@@ -329,6 +336,7 @@ body {
     top: 30%;
     -webkit-transform: translateY(-50%);
         -ms-transform: translateY(-50%);
+         -o-transform: translateY(-50%);
             transform: translateY(-50%);
   }
   .docs-header-content .btn {
@@ -536,15 +544,17 @@ body {
   background-color: #fff;
   border-bottom: 1px solid #ddd;
   -webkit-transition: -webkit-transform .5s;
-     -moz-transition:    -moz-transform .5s;
+       -o-transition:      -o-transform .5s;
           transition:         transform .5s;
   -webkit-transform: translate3d(0, -55px, 0);
       -ms-transform: translate3d(0, -55px, 0);
+       -o-transform: translate3d(0, -55px, 0);
           transform: translate3d(0, -55px, 0);
 }
 .docs-component-toolbar.visible {
   -webkit-transform: translate3d(0, 0, 0);
       -ms-transform: translate3d(0, 0, 0);
+       -o-transform: translate3d(0, 0, 0);
           transform: translate3d(0, 0, 0);
 }
 .docs-component-toolbar .segmented-control {
@@ -707,7 +717,7 @@ code {
     padding-left: 0;
     opacity: .3;
     -webkit-transition: opacity .2s ease-in-out;
-       -moz-transition: opacity .2s ease-in-out;
+         -o-transition: opacity .2s ease-in-out;
             transition: opacity .2s ease-in-out;
   }
   .component.active {
@@ -818,7 +828,6 @@ code {
 @media screen and (min-width: 768px) {
   .slider .slide {
     cursor: -webkit-grab;
-    cursor:    -moz-grab;
     cursor:         grab;
   }
 
@@ -858,9 +867,10 @@ code {
     background-image: url("../img/device-sprite.png");
     background-repeat: no-repeat;
     background-position: 0 0;
-    background-size: 300%;
+    -webkit-background-size: 300%;
+            background-size: 300%;
     -webkit-transition: background-image .1s linear;
-       -moz-transition: background-image .1s linear;
+         -o-transition: background-image .1s linear;
             transition: background-image .1s linear;
   }
   .device.device-fixed {
@@ -992,13 +1002,13 @@ hr {
   background-color: rgba(247, 247, 247, .98);
   border: 1px solid #929292;
   -webkit-transition: all;
-     -moz-transition: all;
+       -o-transition: all;
           transition: all;
   -webkit-transition-timing-function: linear;
-     -moz-transition-timing-function: linear;
+       -o-transition-timing-function: linear;
           transition-timing-function: linear;
   -webkit-transition-duration: .2s;
-     -moz-transition-duration: .2s;
+       -o-transition-duration: .2s;
           transition-duration: .2s;
 }
 .platform-ios .btn:active, .platform-ios .btn.active {
@@ -1226,7 +1236,7 @@ hr {
   color: #929292;
   border-color: #929292;
   -webkit-transition: background-color .1s linear;
-     -moz-transition: background-color .1s linear;
+       -o-transition: background-color .1s linear;
           transition: background-color .1s linear;
 }
 .platform-ios .segmented-control .control-item:active {
@@ -1281,7 +1291,6 @@ hr {
 .platform-ios .popover {
   border-radius: 12px;
   -webkit-transition: -webkit-transform .2s ease-in-out, opacity .2s ease-in-out;
-     -moz-transition: -webkit-transform .2s ease-in-out, opacity .2s ease-in-out;
           transition: -webkit-transform .2s ease-in-out, opacity .2s ease-in-out;
 }
 .platform-ios .popover:before {
@@ -1300,12 +1309,12 @@ hr {
 }
 .platform-ios .modal {
   -webkit-transition-timing-function: cubic-bezier(.1, .5, .1, 1);
-     -moz-transition-timing-function: cubic-bezier(.1, .5, .1, 1);
+       -o-transition-timing-function: cubic-bezier(.1, .5, .1, 1);
           transition-timing-function: cubic-bezier(.1, .5, .1, 1);
 }
 .platform-ios .modal.active {
   -webkit-transition-timing-function: cubic-bezier(.1, .5, .1, 1);
-     -moz-transition-timing-function: cubic-bezier(.1, .5, .1, 1);
+       -o-transition-timing-function: cubic-bezier(.1, .5, .1, 1);
           transition-timing-function: cubic-bezier(.1, .5, .1, 1);
 }
 .platform-ios .toggle {
@@ -1314,18 +1323,18 @@ hr {
   -webkit-box-shadow: inset 0 0 0 0 #e1e1e1;
           box-shadow: inset 0 0 0 0 #e1e1e1;
   -webkit-transition-duration: .2s;
-     -moz-transition-duration: .2s;
+       -o-transition-duration: .2s;
           transition-duration: .2s;
-  -webkit-transition-property: box-shadow, border;
-     -moz-transition-property: box-shadow, border;
-          transition-property: box-shadow, border;
+  -webkit-transition-property: -webkit-box-shadow, border;
+       -o-transition-property:         box-shadow, border;
+          transition-property:         box-shadow, border;
 }
 .platform-ios .toggle .toggle-handle {
   border: 1px solid rgba(0, 0, 0, .2);
   -webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, .08);
           box-shadow: 0 3px 3px rgba(0, 0, 0, .08);
   -webkit-transition-property: -webkit-transform, border, width;
-     -moz-transition-property:    -moz-transform, border, width;
+       -o-transition-property:      -o-transform, border, width;
           transition-property:         transform, border, width;
 }
 .platform-ios .toggle:before {
@@ -1340,6 +1349,7 @@ hr {
 .platform-ios .toggle.active .toggle-handle {
   -webkit-transform: translate3d(17px, 0, 0);
       -ms-transform: translate3d(17px, 0, 0);
+       -o-transform: translate3d(17px, 0, 0);
           transform: translate3d(17px, 0, 0);
 }
 .platform-ios .toggle.active .toggle-handle {
@@ -1347,30 +1357,31 @@ hr {
 }
 .platform-ios .content.fade {
   -webkit-transition: opacity .2s ease-in-out;
-     -moz-transition: opacity .2s ease-in-out;
+       -o-transition: opacity .2s ease-in-out;
           transition: opacity .2s ease-in-out;
 }
 .platform-ios .content.sliding {
   -webkit-transition-timing-function: cubic-bezier(.1, .5, .1, 1);
-     -moz-transition-timing-function: cubic-bezier(.1, .5, .1, 1);
+       -o-transition-timing-function: cubic-bezier(.1, .5, .1, 1);
           transition-timing-function: cubic-bezier(.1, .5, .1, 1);
 }
 .platform-ios .content.sliding.sliding-in, .platform-ios .content.sliding.right:not([class*="sliding-in"]) {
   -webkit-animation-name: fadeOverlay;
-     -moz-animation-name: fadeOverlay;
+       -o-animation-name: fadeOverlay;
           animation-name: fadeOverlay;
   -webkit-animation-duration: .4s;
-     -moz-animation-duration: .4s;
+       -o-animation-duration: .4s;
           animation-duration: .4s;
 }
 .platform-ios .content.sliding.right:not([class*="sliding-in"]) {
   -webkit-animation-direction: reverse;
-     -moz-animation-direction: reverse;
+       -o-animation-direction: reverse;
           animation-direction: reverse;
 }
 .platform-ios .content.sliding.left {
   -webkit-transform: translate3d(-20%, 0, 0);
       -ms-transform: translate3d(-20%, 0, 0);
+       -o-transform: translate3d(-20%, 0, 0);
           transform: translate3d(-20%, 0, 0);
 }
 @-webkit-keyframes fadeOverlay {
@@ -1802,10 +1813,11 @@ hr {
   -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, .2);
           box-shadow: 0 0 3px rgba(0, 0, 0, .2);
   -webkit-transition: -webkit-transform .1s ease-in-out, opacity .2s ease-in-out;
-     -moz-transition:    -moz-transform .1s ease-in-out, opacity .2s ease-in-out;
+       -o-transition:      -o-transform .1s ease-in-out, opacity .2s ease-in-out;
           transition:         transform .1s ease-in-out, opacity .2s ease-in-out;
   -webkit-transform: scale(.75);
       -ms-transform: scale(.75);
+       -o-transform: scale(.75);
           transform: scale(.75);
 }
 .platform-android .popover:before {
@@ -1814,6 +1826,7 @@ hr {
 .platform-android .popover.visible {
   -webkit-transform: scale(1);
       -ms-transform: scale(1);
+       -o-transform: scale(1);
           transform: scale(1);
 }
 .platform-android .backdrop {
@@ -1863,6 +1876,7 @@ hr {
   border-color: #33b5e5;
   -webkit-transform: translate3d(50px, 0, 0);
       -ms-transform: translate3d(50px, 0, 0);
+       -o-transform: translate3d(50px, 0, 0);
           transform: translate3d(50px, 0, 0);
 }
 .platform-android .toggle.active:before {
@@ -1927,6 +1941,7 @@ hr {
 .platform-android .device .popover {
   -webkit-transform: scale(1);
       -ms-transform: scale(1);
+       -o-transform: scale(1);
           transform: scale(1);
 }
 .platform-android .bar ~ .content {
