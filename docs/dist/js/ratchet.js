@@ -193,7 +193,9 @@
       delete cacheMapping[cacheBackStack.shift()];
     }
 
-    window.history.pushState(null, '', cacheMapping[PUSH.id].url);
+    if (cacheMapping[PUSH.id]) {
+      window.history.pushState(null, '', cacheMapping[PUSH.id].url);
+    }
 
     cacheMapping.cacheForwardStack = JSON.stringify(cacheForwardStack);
     cacheMapping.cacheBackStack    = JSON.stringify(cacheBackStack);
@@ -590,7 +592,8 @@
     }
 
     data.title = head.querySelector('title');
-    data.title = data.title && data.title.innerText.trim();
+    var text = ('innerText' in data.title) ? 'innerText' : 'textContent';
+    data.title = data.title && data.title[text].trim();
 
     if (options.transition) {
       data = extendWithDom(data, '.content', body);
@@ -702,6 +705,23 @@
   var isScrolling;
   var scrollableArea;
 
+  // Original script from http://davidwalsh.name/vendor-prefix
+  var getBrowserCapabilities = (function () {
+    var styles = window.getComputedStyle(document.documentElement, '');
+    var pre = (Array.prototype.slice
+        .call(styles)
+        .join('')
+        .match(/-(moz|webkit|ms)-/) || (styles.OLink === '' && ['', 'o'])
+      )[1];
+    return {
+      prefix: '-' + pre + '-',
+      transform: pre[0].toUpperCase() + pre.substr(1) + 'Transform'
+    };
+  })();
+
+  var transformPrefix   = getBrowserCapabilities.prefix;
+  var transformProperty = getBrowserCapabilities.transform;
+
   var getSlider = function (target) {
     var i;
     var sliders = document.querySelectorAll('.slider > .slide-group');
@@ -716,11 +736,9 @@
   };
 
   var getScroll = function () {
-    if ('webkitTransform' in slider.style) {
-      var translate3d = slider.style.webkitTransform.match(/translate3d\(([^,]*)/);
-      var ret = translate3d ? translate3d[1] : 0;
-      return parseInt(ret, 10);
-    }
+    var translate3d = slider.style[transformProperty].match(/translate3d\(([^,]*)/);
+    var ret = translate3d ? translate3d[1] : 0;
+    return parseInt(ret, 10);
   };
 
   var setSlideNumber = function (offset) {
@@ -753,7 +771,7 @@
 
     setSlideNumber(0);
 
-    slider.style['-webkit-transition-duration'] = 0;
+    slider.style[transformPrefix + 'transition-duration'] = 0;
   };
 
   var onTouchMove = function (e) {
@@ -781,7 +799,7 @@
     resistance = slideNumber === 0         && deltaX > 0 ? (pageX / sliderWidth) + 1.25 :
                  slideNumber === lastSlide && deltaX < 0 ? (Math.abs(pageX) / sliderWidth) + 1.25 : 1;
 
-    slider.style.webkitTransform = 'translate3d(' + offsetX + 'px,0,0)';
+    slider.style[transformProperty] = 'translate3d(' + offsetX + 'px,0,0)';
   };
 
   var onTouchEnd = function (e) {
@@ -795,8 +813,8 @@
 
     offsetX = slideNumber * sliderWidth;
 
-    slider.style['-webkit-transition-duration'] = '.2s';
-    slider.style.webkitTransform = 'translate3d(' + offsetX + 'px,0,0)';
+    slider.style[transformPrefix + 'transition-duration'] = '.2s';
+    slider.style[transformProperty] = 'translate3d(' + offsetX + 'px,0,0)';
 
     e = new CustomEvent('slide', {
       detail: { slideNumber: Math.abs(slideNumber) },
@@ -826,6 +844,22 @@
   var touchMove = false;
   var distanceX = false;
   var toggle    = false;
+
+  // Original script from http://davidwalsh.name/vendor-prefix
+  var getBrowserCapabilities = (function () {
+    var styles = window.getComputedStyle(document.documentElement, '');
+    var pre = (Array.prototype.slice
+        .call(styles)
+        .join('')
+        .match(/-(moz|webkit|ms)-/) || (styles.OLink === '' && ['', 'o'])
+      )[1];
+    return {
+      prefix: '-' + pre + '-',
+      transform: pre[0].toUpperCase() + pre.substr(1) + 'Transform'
+    };
+  })();
+
+  var transformProperty = getBrowserCapabilities.transform;
 
   var findToggle = function (target) {
     var i;
@@ -885,13 +919,13 @@
     e.preventDefault();
 
     if (distanceX < 0) {
-      return (handle.style.webkitTransform = 'translate3d(0,0,0)');
+      return (handle.style[transformProperty] = 'translate3d(0,0,0)');
     }
     if (distanceX > offset) {
-      return (handle.style.webkitTransform = 'translate3d(' + offset + 'px,0,0)');
+      return (handle.style[transformProperty] = 'translate3d(' + offset + 'px,0,0)');
     }
 
-    handle.style.webkitTransform = 'translate3d(' + distanceX + 'px,0,0)';
+    handle.style[transformProperty] = 'translate3d(' + distanceX + 'px,0,0)';
 
     toggle.classList[(distanceX > (toggleWidth / 2 - handleWidth / 2)) ? 'add' : 'remove']('active');
   });
@@ -908,9 +942,9 @@
     var slideOn     = (!touchMove && !toggle.classList.contains('active')) || (touchMove && (distanceX > (toggleWidth / 2 - handleWidth / 2)));
 
     if (slideOn) {
-      handle.style.webkitTransform = 'translate3d(' + offset + 'px,0,0)';
+      handle.style[transformProperty] = 'translate3d(' + offset + 'px,0,0)';
     } else {
-      handle.style.webkitTransform = 'translate3d(0,0,0)';
+      handle.style[transformProperty] = 'translate3d(0,0,0)';
     }
 
     toggle.classList[slideOn ? 'add' : 'remove']('active');
