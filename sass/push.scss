@@ -15,10 +15,10 @@
 
   // Slide animation
   &.sliding {
-    z-index: 2;
+    -moz-transition: -moz-transform .4s;
     -webkit-transition: -webkit-transform .4s;
-       -moz-transition: -moz-transform .4s;
-            transition: transform .4s;
+    transition: transform .4s;
+    z-index: 2;
     @include transform(translate3d(0, 0, 0));
 
     &.left {
@@ -39,25 +39,27 @@
 .push-left,
 .push-right {
   &:after {
-    position: absolute;
-    top: 50%;
+    color: #bbb;
     display: inline-block;
     font-family: Ratchicons;
     font-size: inherit;
-    line-height: 1;
-    color: #bbb;
-    text-decoration: none;
     -webkit-font-smoothing: antialiased;
+    line-height: 1;
+    position: absolute;
+    text-decoration: none;
+    top: 50%;
     @include transform(translateY(-50%));
   }
 }
+
 .navigate-left:after,
 .push-left:after {
-  left: 15px;
   content: '\e822';
+  left: 15px;
 }
+
 .navigate-right:after,
-.push-right:after{
-  right: 15px;
+.push-right:after {
   content: '\e826';
+  right: 15px;
 }
