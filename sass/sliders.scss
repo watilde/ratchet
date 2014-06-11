@@ -4,28 +4,25 @@
 
 // Width of slider
 .slider {
-  width: 100%;
-}
-
-// Outer wrapper for slider
-.slider {
-  overflow: hidden;
+  // Outer wrapper for slider
   background-color: #000;
+  overflow: hidden;
 
+  width: 100%;
   // Inner wrapper for slider (width of all slides together)
   .slide-group {
-    position: relative;
     font-size: 0; // Remove spaces from inline-block children
+    position: relative;
     white-space: nowrap;
     @include transition(all 0s linear);
 
     // Individual slide
     .slide {
       display: inline-block;
-      width: 100%;
-      height: 100%;
       font-size: 14px;
+      height: 100%;
       vertical-align: top; // Ensure that li always aligns to top
+      width: 100%;
     }
   }
 }
